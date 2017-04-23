@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: pul
+      changes:
+        - createTable:
+            tableName: Refrigerator
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: reference_id
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: UQ_Refrigerator_ReferenceId
+              - column:
+                  name: version
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: varchar(100)
+                  constraints:
+                    nullalble: false
+              - column:
+                  name: created_at
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_by
+                  type: varchar(100)
+                  defaultValue: null,
+              - column: 
+                  name: updated_at
+                  type: datetime
+                  defaultValue: null
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: location
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+            remarks: Contains all refigerators data
